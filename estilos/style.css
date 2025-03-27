@@ -179,29 +179,87 @@ main {
 }
 
 
-#conteudo_Principal {
+
+.carousel-container {
     position: relative;
     width: 100%;
+    min-height: 40vw;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+.carousel-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+#carouselImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; 
+}
+
+
+
+
+.buttons {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    z-index: 2;
+}
+
+
+#prevButton, #nextButton {
+    display: none;
+}
+
+/* #prevButton, #nextButton {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
     align-items: center;
-    
+    justify-content: center;
+    transition: background 0.3s ease;
+} */
+
+#prevButton:hover, #nextButton:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
 
-.imagem_Principal_Desktop {
-    display: none; /* Esconde a versão desktop por padrão */
+
+#carouselTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
 }
 
-.imagem_Principal_Mobile {
-    display: block; /* Mostra a versão mobile */
+a{
+    text-decoration: none;
+    color: black;
+    font-family: "Antenna", Arial, Helvetica, sans-serif;
+    text-shadow: rgba(0, 0, 0, 0.233) -1px -1px 1px;
 }
 
-#imagem_Principal {
-    width: 100vw;
-    height: auto;  
-    /* object-fit: cover;  */
-    box-shadow: 0px -14px 20px 5px rgba(0, 0, 0, 0.151);
-}
+
 
 a > img {
     width: 100%;
@@ -228,39 +286,6 @@ a > img {
 #titulo_Forte {
     font-size: 13vw;
     font-family: "Antenna", Arial, Helvetica, sans-serif;
-}
-
-#caixa_Informacao {
-    background-color: rgb(240, 240, 240);
-    width: 100vw;
-    height: 30vw;
-    box-shadow:  0 2px 20px  #88888881;
-    display: flex;
-
-    align-items: center;
-    justify-content: space-evenly;
-    font-size: 5vw;
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
-    
-    flex-shrink: 0
-}
-
-.titulo_Informacao {
-    color: rgb(138, 138, 138);
-    letter-spacing: 1px;
-    font-weight: normal;
-    text-align: center;
-}
-
-.informacao {
-    letter-spacing: 3px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.linha-vertical {
-    height: 8vh;
-    border-left: 2px solid rgb(196, 196, 196);
 }
 
 #novidade {
