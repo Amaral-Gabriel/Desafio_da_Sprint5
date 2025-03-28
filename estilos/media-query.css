@@ -123,6 +123,41 @@
         font-size: 3vw;
     }
 
+    .carousel-container {
+        justify-self: center;
+        width: 90%;
+        box-shadow: rgba(0, 0, 0, 0.295) 0px 0px 30px;
+    }
+   
+    #carouselTitle {
+        font-size: xx-large;
+    }
+
+
+    #prevButton, #nextButton {
+        display: flex;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease;
+        margin: 0 20px;
+
+    }
+
+    .radios {
+       
+        bottom: 30px;
+
+    }
+
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
