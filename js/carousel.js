@@ -85,6 +85,7 @@ class Carousel {
         this.imageElement.alt = currentItem.title;
         this.titleElement.textContent = currentItem.title;
         this.linkElement.href = currentItem.url;
+        this.linkElement.target = "_self";
         
         // Atualizar apenas se houver radios
         if (this.radios.length > 0) {
@@ -125,12 +126,12 @@ const images = [
     {
         image: "assets/imagens/imagem_2.jpg",
         title: "Nossa história",
-        url: "lancamento.html"
+        url: "https://corporate.ford.com/about/history.html"
     },
     {
         image: "assets/imagens/imagem_3.jpg",
         title: "Nova Ford Bronco Sport 2022",
-        url: "lancamento.html"
+        url: "#"
     }
 ];
 
