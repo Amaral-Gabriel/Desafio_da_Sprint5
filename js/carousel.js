@@ -1,27 +1,81 @@
-
 class Carousel {
-    constructor (images, interval = 2000){
+    constructor(images, interval = 2000) {
         this.images = images;
         this.intervalTime = interval;
         this.index = 0;
         this.timer = null;
+        this.radios = [];
 
+        // Elementos do DOM
         this.imageElement = document.getElementById("carouselImage");
         this.titleElement = document.getElementById("carouselTitle");
         this.linkElement = document.getElementById("carouselLink");
-
         this.prevButton = document.getElementById("prevButton");
         this.nextButton = document.getElementById("nextButton");
+        this.radioButtonsContainer = document.getElementById("radioButtonsContainer");
 
-        this.prevButton.addEventListener("click", () => this.back());
-        this.nextButton.addEventListener("click", () => this.next());
-
+        this.createRadioButtons();
+        this.setupEventListeners();
         this.updateCarousel();
         this.startAutoSlide();
+    }
 
-        this.initSwipeEvents();
+    createRadioButtons() {
+        this.radioButtonsContainer.innerHTML = '';
+        
+        this.images.forEach((_, index) => {
+            const radioId = `slide-${index}`;
+            
+            const radioWrapper = document.createElement('div');
+            radioWrapper.className = 'radio-wrapper';
+            
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = 'carousel';
+            radio.id = radioId;
+            radio.className = 'carousel-radio';
+            radio.dataset.index = index;
+            
+            const label = document.createElement('label');
+            label.htmlFor = radioId;
+            
+            radioWrapper.appendChild(radio);
+            radioWrapper.appendChild(label);
+            this.radioButtonsContainer.appendChild(radioWrapper);
+            
+            // Armazena referência
+            this.radios.push(radio);
+            
+            // Adiciona evento
+            radio.addEventListener('change', () => {
+                if (radio.checked) {
+                    this.goToSlide(index);
+                }
+            });
+        });
+    }
 
+    goToSlide(index) {
+        this.index = index;
+        this.updateCarousel();
+        this.resetTimer();
+    }
 
+    setupRadioEvents() {
+        this.radios.forEach((radio, index) => {
+            radio.addEventListener('change', () => {
+                if (radio.checked) {
+                    this.index = index;
+                    this.updateCarousel();
+                    this.resetTimer();
+                }
+            });
+        });
+    }
+
+    setupEventListeners() {
+        this.prevButton.addEventListener("click", () => this.back());
+        this.nextButton.addEventListener("click", () => this.next());
     }
 
     updateCarousel() {
@@ -31,10 +85,16 @@ class Carousel {
         this.imageElement.alt = currentItem.title;
         this.titleElement.textContent = currentItem.title;
         this.linkElement.href = currentItem.url;
+        
+        // Atualizar apenas se houver radios
+        if (this.radios.length > 0) {
+            this.radios.forEach(radio => radio.checked = false);
+            this.radios[this.index].checked = true;
+        }
     }
 
+    // Restante dos métodos permanece igual
     next() {
-        // Lógica melhorada para navegação cíclica
         this.index = (this.index + 1) % this.images.length;
         this.updateCarousel();
         this.resetTimer();
@@ -54,10 +114,7 @@ class Carousel {
         clearInterval(this.timer);
         this.startAutoSlide();
     }
-};
-
-
-
+}
 
 const images = [
     {
@@ -77,7 +134,7 @@ const images = [
     }
 ];
 
-
+// Inicialização permanece igual
 document.addEventListener("DOMContentLoaded", () => {
     new Carousel(images);
 });
