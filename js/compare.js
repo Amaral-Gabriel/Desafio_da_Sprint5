@@ -105,7 +105,7 @@ function handleCompareSelection() {
 
         checkbox.addEventListener('change', function() {
 
-            const carIndex = this.dataset.carIndex;
+            const carIndex = Number(this.dataset.carIndex);
             const selectedCar = carInstances[carIndex];
 
             div_Erro = document.getElementById("erro_Div");
@@ -114,7 +114,6 @@ function handleCompareSelection() {
                 if (carsToCompare.length >= 2) {
                     this.checked = false;
 
-                    // Mensagem de erro
                     
                     div_Erro.style.display = "flex";
                     document.getElementById("erro_Span").innerHTML="Máximo de 2 veículos para comparação."
