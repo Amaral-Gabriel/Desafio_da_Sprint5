@@ -51,10 +51,81 @@
             </tr>
         </table>
 
-        
-        <div id="compare">
-            <button class="botao_Comparar"><a href="#">Comparar</a></button>
+        <div>
+            <div id="div_Comparacao">
+                <button class="close_Table" onclick="close_Table()">x</button>
+                <table id="table_Comparacao">
+
+                    <tbody id="body_Comparacao">
+                        <tr class="row_Comparacao">
+                            <td id="compare_image"></td>
+                            <td id="compare_image_0"></td>
+                            <td id="compare_image_1"></td>
+                        </tr>
+                        <tr class="row_Comparacao">
+                            <td>Modelo</td>
+                            <td id="compare_modelo_0"></td>
+                            <td id="compare_modelo_1"></td>
+                        </tr>
+                        <tr class="row_Comparacao">
+                            <td >Altura do veiculo (mm)</td>
+                            <td id="compare_alturaveiculo_0"></td>
+                            <td id="compare_alturaveiculo_1"></td>
+                        </tr>
+                        <tr class="row_Comparacao">
+                            <td>Altura livre do solo (mm)</td>
+                            <td id="compare_alturasolo_0"></td>
+                            <td id="compare_alturasolo_1"></td>
+                        </tr>
+                        <tr class="row_Comparacao">
+                            <td >Capacidade de carga (Kg)</td>
+                            <td id="compare_capacidadecarga_0"></td>
+                            <td id="compare_capacidadecarga_1"></td>
+                        </tr>
+                        <tr class="row_Comparacao">
+                            <td >Motor</td>
+                            <td id="compare_motor_0"></td>
+                            <td id="compare_motor_1"></td>
+                        </tr>
+                        <tr class="row_Comparacao">
+                            <td >Potencia</td>
+                            <td id="compare_potencia_0"></td>
+                            <td id="compare_potencia_1"></td>
+                        </tr>
+                        <tr class="row_Comparacao">
+                            <td >Volume de cacamba (L)</td>
+                            <td id="compare_volumecacamba_0"></td>
+                            <td id="compare_volumecacamba_1"></td>
+                        </tr>
+                        <tr class="row_Comparacao">
+                            <td >Roda</td>
+                            <td id="compare_roda_0"></td>
+                            <td id="compare_roda_1"></td>
+                        </tr>
+                        <tr class="row_Comparacao">
+                            <td >Preco</td>
+                            <td id="compare_preco_0"></td>
+                            <td id="compare_preco_1"></td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+                
+            </div>   
         </div>
+
+
+
+        <section id="section_Btn">
+            <div id="compare">
+                <button class="botao_Comparar"><a href="#">Comparar</a></button>
+            </div>
+    
+            <div id="erro_Div">
+                <span id="erro_Span"></span>
+            </div>
+        </section>
+        
     </main>
     <footer>
         <div class="informacoes_Footer">

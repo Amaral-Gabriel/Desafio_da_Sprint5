@@ -49,6 +49,7 @@ body {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 
@@ -218,19 +219,19 @@ table{
 
 }
 
-tr {
+.table_Cars {
     display: grid;
     grid-template-columns: auto;
 }
 
 @media (min-width: 700px) {
-    tr {
+    .table_Cars {
         grid-template-columns: auto auto;
     }
 } 
 
 @media (min-width: 1100px) {
-    tr {
+    .table_Cars {
         grid-template-columns: auto auto auto;
     }
     header > .cabecalho > img {
@@ -238,7 +239,7 @@ tr {
     }
 } 
 
-table > tr > td {
+table > .table_Cars > td {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -248,12 +249,12 @@ table > tr > td {
     overflow-x: hidden;
 }
 
-table > tr > td > img {
+table > .table_Cars > td > img {
     width: 100%;
     height: auto;
     object-fit: contain;
     display: block;
-}
+} 
 
 .info_Carro {
     display: flex;
@@ -316,6 +317,114 @@ table > tr > td > img {
 
 
 
+
+
+
+
+
+
+
+
+.close_Table {
+    border-radius: 50%;
+    border: 1px solid gray;
+    padding: 5px;
+    font-size: medium;
+    width: 30px;
+    height: 30px;
+    font-family: "Antenna", Arial, Helvetica, sans-serif;
+}
+
+
+#div_Comparacao {
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50% );
+    background-color: white;
+    border: 2px solid rgba(92, 92, 92, 0.548);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 10px;
+    box-sizing: content-box;
+}
+
+
+#table_Comparacao {
+    max-height: 80vh;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: flex;
+    grid-template-columns: auto;
+    box-sizing: content-box;
+    overflow-x: hidden;
+
+    border: none;
+}
+
+
+
+.row_Comparacao:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#body_Comparacao {
+    border: 0px;
+}
+
+.row_Comparacao {
+    text-align: center;
+    font-size: smaller;
+    
+
+}
+
+.row_Comparacao > td {
+
+    text-align: center;
+    padding: 10px 0;
+}
+
+table > tbody > tr > td > img {
+    max-width: 20vw;
+    min-width: 100px
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#section_Btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
 #compare {
     display: flex;
     flex-direction: column;
@@ -323,6 +432,20 @@ table > tr > td > img {
     align-items: center;
     padding: 20px;
     font-size: 20px;
+}
+
+#erro_Div {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#erro_Span {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    text-align: center;
+    justify-self: center;
+    color: red;
 }
 
 button a {
