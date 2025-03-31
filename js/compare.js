@@ -108,12 +108,14 @@ function handleCompareSelection() {
             const carIndex = this.dataset.carIndex;
             const selectedCar = carInstances[carIndex];
 
+            div_Erro = document.getElementById("erro_Div");
+
             if (this.checked) {
                 if (carsToCompare.length >= 2) {
                     this.checked = false;
 
                     // Mensagem de erro
-                    div_Erro = document.getElementById("erro_Div");
+                    
                     div_Erro.style.display = "flex";
                     document.getElementById("erro_Span").innerHTML="Máximo de 2 veículos para comparação."
                     return;
@@ -146,7 +148,7 @@ function showCompare() {
     }
     div_Erro.style.display = "none";
     UpdateCompareTable();
-    document.getElementById("section_Btn").style.display = "none";
+    // document.getElementById("section_Btn").style.display = "none";
     document.getElementById("div_Comparacao").style.display = "flex";
 }
 
@@ -156,9 +158,10 @@ function UpdateCompareTable() {
     let item1 = carsToCompare[0];
     let item2 = carsToCompare[1];
 
-    document.getElementById("compare_image_0").innerHTML = `<img src="${item1.image}">`;
-    document.getElementById("compare_image_1").innerHTML = `<img src="${item2.image}">`;
-
+    document.getElementById("compare_image_0").innerHTML = `<img class="image_Table" src="${item1.image}">`;
+   
+    document.getElementById("compare_image_1").innerHTML = `<img class="image_Table" src="${item2.image}">`;
+    
 
     document.getElementById("compare_modelo_0").innerHTML = `${item1.nome}`;
     document.getElementById("compare_modelo_1").innerHTML = `${item2.nome}`;
@@ -188,9 +191,11 @@ function UpdateCompareTable() {
     document.getElementById("compare_preco_1").innerHTML = `${item2.preco}`;
 
 
+
+
 }
 
-function close_Table() {
+function HideCompare() {
     document.getElementById("div_Comparacao").style.display = "none";
     document.getElementById("section_Btn").style.display = "flex";
 }
@@ -200,142 +205,20 @@ function close_Table() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Inicialização
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     createCarTableCells();
     handleCompareSelection();
-    
-    document.querySelector('.botao_Comparar').addEventListener('click', (e) => {
+
+    document.querySelector('.botao_Comparar').addEventListener('click', () => {
         showCompare();
     });
+
+    document.addEventListener("click", function (event) {
+        const tabela = document.getElementById("div_Comparacao");
+
+        if (tabela && tabela.style.display === "flex" && !tabela.contains(event.target) && !event.target.closest('.botao_Comparar')) {
+            HideCompare();
+        }
+    });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // search on array if exist carClass returning 1 if not return -1
-// function GetCarArrPosition(arr, carClass) {
-//     for(let i = 0; i < arr.length; i++){
-//         if(arr[i].nome  === carClass.nome)
-//             return i;
-//     }
-//     return -1;
-// }
-
-// function SetCarToCompare(el, carClass) {
-   
-//     if(carClass instanceof Car){       
-//         if(el.checked){
-                
-            
-//         } else {
-          
-//         } 
-//     } else {
-//         throw "You need set a Car Class";
-//     }
-// }
-
-// function ShowCompare() {
-//     if(carArr.length < 2) {
-//         alert("Precisa marcar 2 carros para apresentar a comparação");
-//         return;
-//     }
-
-//     UpdateCompareTable();
-//     document.getElementById("compare").style.display = "block";
-// }
-
-// function HideCompare(){
-//     document.getElementById("compare").style.display = "none"; 
-// }
-
-// function UpdateCompareTable() {
-    
-// }
-
-
-

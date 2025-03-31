@@ -333,11 +333,33 @@ table > .table_Cars > td > img {
     width: 30px;
     height: 30px;
     font-family: "Antenna", Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-30%, -50%);
+    cursor: pointer;
+} 
+
+#fechar_Table {
+    text-align: center;
+    padding: 5px 15px; 
+    font-size: larger;
+    margin-top: 30px;
+    border-radius: 20px;
+    border: 2px solid rgba(128, 128, 128, 0.377);
+    transition: ease 0.5s;
+    font-weight: bold;
+}
+
+#fechar_Table:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 
 #div_Comparacao {
-    
+    margin: 10px 0;
+    max-height: 90vh;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -345,10 +367,12 @@ table > .table_Cars > td > img {
     background-color: white;
     border: 2px solid rgba(92, 92, 92, 0.548);
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
     padding: 10px;
+    padding-top: 0;
     box-sizing: content-box;
 }
 
@@ -356,6 +380,7 @@ table > .table_Cars > td > img {
 #table_Comparacao {
     max-height: 80vh;
     width: 100%;
+    min-width: 100%;
     height: auto;
     text-align: center;
     display: flex;
@@ -386,12 +411,14 @@ table > .table_Cars > td > img {
 .row_Comparacao > td {
 
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 5px;
 }
 
-table > tbody > tr > td > img {
-    max-width: 20vw;
-    min-width: 100px
+.image_Table{
+    width: 100%;
+    max-width: 100px;
+    min-width: 50px;
+    height: auto;
 }
 
 
