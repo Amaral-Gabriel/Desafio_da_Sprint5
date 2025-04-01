@@ -37,11 +37,12 @@
 
             <img src="assets/imagens/xls 2.2 diesel.jpg" alt="Ranger 2022 XLS na cor vermelha">
             
-            <form class="form" method="GET" action="">
-
+            
+            <form novalidate class="form" method="GET" action="">
+                
                 <p class="title">Contato</p>
                 <p class="message">Sobre você</p>
-
+                <span id="error_Forms"></span>
                 <div class="flex">
                     <input required placeholder="NOME" type="text" class="input" name="nome" id="nome">
                     <input required placeholder="SOBRENOME" type="text" class="input" name="sobrenome" id="sobrenome">
@@ -59,7 +60,7 @@
                 
                 <textarea required class="input" name="mensagem" id="mensagem" cols="30" rows="10" placeholder="MENSAGEM"></textarea>
 
-                <button onclick="exibe_nome()" type="submit" class="submit">Enviar</button>
+                <button type="submit" class="submit">Enviar</button>
 
             </form>
 

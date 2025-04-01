@@ -273,7 +273,9 @@ main {
     }
   }
   
-
+#error_Forms {
+    color: rgb(255, 55, 55);
+}
   
 .flex {
     display: flex;
