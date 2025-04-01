@@ -1,3 +1,5 @@
+
+// Tabela de carros
 const cars = [
     {
         nome: "RANGER XL",
@@ -37,7 +39,7 @@ const cars = [
     }
 ];
 
-class Car {
+class Car { // Classe para instanciar carros
     constructor(index, nome, preco, alturaVeiculo, alturaSolo, capacidadeCarga, motor, potencia, volumeCacamba, roda, image) {
         this.index = index;
         this.nome = nome;
@@ -54,8 +56,7 @@ class Car {
 }
 
 
-
-const carInstances = cars.map((car, index) => {
+const carInstances = cars.map((car, index) => { // Cria uma lista com cada elemento de carro e instância na classe
     return new Car(
         index,
         car.nome,
@@ -103,15 +104,15 @@ function handleCompareSelection() {
 
     document.querySelectorAll('.input_Box').forEach(checkbox => {
 
-        checkbox.addEventListener('change', function() {
+        checkbox.addEventListener('change', function() { // Adiciona um listener pra cada checkbox
 
-            const carIndex = Number(this.dataset.carIndex);
+            const carIndex = Number(this.dataset.carIndex); // Pega o índice do carro selecionado
             const selectedCar = carInstances[carIndex];
 
             div_Erro = document.getElementById("erro_Div");
 
             if (this.checked) {
-                if (carsToCompare.length >= 2) {
+                if (carsToCompare.length >= 2) { // Trata erro
                     this.checked = false;
 
                     
@@ -119,15 +120,14 @@ function handleCompareSelection() {
                     document.getElementById("erro_Span").innerHTML="Máximo de 2 veículos para comparação."
                     return;
                 }
-                // Adiciona se não existir ainda
+                // Adiciona se o carro não estiver na lista
                 if (!carsToCompare.some(car => car.index === carIndex)) {
                     carsToCompare.push(selectedCar);
                 }
             } else {
                 // Remove usando findIndex para garantir que remove o certo
                 const indexToRemove = carsToCompare.findIndex(car => car.index === carIndex);
-            
-                carsToCompare.splice(indexToRemove, 1);
+                carsToCompare.splice(indexToRemove, 1); // Remove o index do selcionado
             }
             div_Erro.style.display = "none";
             console.log("Carros selecionados:", carsToCompare); // Para debug
@@ -135,7 +135,7 @@ function handleCompareSelection() {
     });
 }
 
-
+// Função para exibir comparação
 function showCompare() {
     div_Erro = document.getElementById("erro_Div");
     if (carsToCompare.length !== 2) {
@@ -146,22 +146,21 @@ function showCompare() {
         return;
     }
     div_Erro.style.display = "none";
-    UpdateCompareTable();
-    // document.getElementById("section_Btn").style.display = "none";
-    document.getElementById("div_Comparacao").style.display = "flex";
+    UpdateCompareTable(); // Chama função para atualizar tabela
+    document.getElementById("div_Comparacao").style.display = "flex"; // Exibe tabela após a atualização
 }
 
-
+// Atualiza tabela
 function UpdateCompareTable() {
-
+    //Pega os 2 carros selecionados
     let item1 = carsToCompare[0];
     let item2 = carsToCompare[1];
 
+    // Muda todos os dados dos carros na tabela
+
     document.getElementById("compare_image_0").innerHTML = `<img class="image_Table" src="${item1.image}">`;
-   
     document.getElementById("compare_image_1").innerHTML = `<img class="image_Table" src="${item2.image}">`;
     
-
     document.getElementById("compare_modelo_0").innerHTML = `${item1.nome}`;
     document.getElementById("compare_modelo_1").innerHTML = `${item2.nome}`;
     
@@ -188,23 +187,15 @@ function UpdateCompareTable() {
 
     document.getElementById("compare_preco_0").innerHTML = `${item1.preco}`;
     document.getElementById("compare_preco_1").innerHTML = `${item2.preco}`;
-
-
-
-
 }
 
+// Esconde a tabela
 function HideCompare() {
     document.getElementById("div_Comparacao").style.display = "none";
     document.getElementById("section_Btn").style.display = "flex";
 }
 
-
-
-
-
-
-// Inicialização
+// Iniciliza documento
 document.addEventListener("DOMContentLoaded", () => {
     createCarTableCells();
     handleCompareSelection();
@@ -213,9 +204,8 @@ document.addEventListener("DOMContentLoaded", () => {
         showCompare();
     });
 
-    document.addEventListener("click", function (event) {
+    document.addEventListener("click", function (event) { // Verfica se o usuário clica fora da tabela
         const tabela = document.getElementById("div_Comparacao");
-
         if (tabela && tabela.style.display === "flex" && !tabela.contains(event.target) && !event.target.closest('.botao_Comparar')) {
             HideCompare();
         }

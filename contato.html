@@ -34,25 +34,35 @@
     </header>
     <main>
         <div id="conteudo_Principal">
+
             <img src="assets/imagens/xls 2.2 diesel.jpg" alt="Ranger 2022 XLS na cor vermelha">
-            <form class="form" method="GET" action=".\index.html">
+            
+            <form class="form" method="GET" action="">
+
                 <p class="title">Contato</p>
                 <p class="message">Sobre você</p>
+
                 <div class="flex">
-                    <input required placeholder="NOME" type="text" class="input" name="nome">
-                    <input required placeholder="SOBRENOME" type="text" class="input" name="sobrenome">
+                    <input required placeholder="NOME" type="text" class="input" name="nome" id="nome">
+                    <input required placeholder="SOBRENOME" type="text" class="input" name="sobrenome" id="sobrenome">
                 </div>
-                <input required placeholder="EMAIL" type="email" class="input" name="email">
-                <input required placeholder="TELEFONE" type="number" class="input" name="telefone">
-                <select required class="input" name="tipo_contato">
+                
+                <input required placeholder="EMAIL" type="email" class="input" name="email" id="email">
+                <input required placeholder="TELEFONE" type="number" class="input" name="telefone" id="telefone">
+                
+                <select required class="input" name="tipo_contato" id="tipo_contato">
                     <option value="" disabled selected>TIPO DE CONTATO</option>
                     <option value="Elogio">ELOGIO</option>
                     <option value="Reclamação">RECLAMAÇÃO</option>
                     <option value="Solicitação">SOLICITAÇÃO</option>
                 </select>
-                <textarea required class="input" name="mensagem" cols="30" rows="10" placeholder="MENSAGEM"></textarea>
-                <button type="submit" class="submit">Enviar</button>
+                
+                <textarea required class="input" name="mensagem" id="mensagem" cols="30" rows="10" placeholder="MENSAGEM"></textarea>
+
+                <button onclick="exibe_nome()" type="submit" class="submit">Enviar</button>
+
             </form>
+
         </div>
     </main>
 
@@ -75,5 +85,6 @@
         </div>
     </footer>
     <script src="app.js"></script>
+    <script src="js/form.js"></script>
 </body>
 </html>

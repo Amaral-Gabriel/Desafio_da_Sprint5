@@ -10,6 +10,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+
 .material-icons-outlined {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -22,6 +23,10 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
+    .material-icons {
+    font-family: 'Material Icons' !important;
+    font-size: 24px; /* Ou o tamanho desejado */
+}
   
     /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;
@@ -171,6 +176,8 @@ nav > button {
     z-index: 6;
 }
 
+
+/* Página principal */
 main {
     width: 100vw;
     background-color: white;
@@ -178,7 +185,7 @@ main {
     
 }
 
-
+/* Vídeo */
 .video-container {
     display: block;
     width: 100%;
@@ -205,7 +212,7 @@ main {
 }  
 
 
-
+/* Seção de carros */
 table{
     width: 100%;
     height: auto;
@@ -215,8 +222,6 @@ table{
     box-sizing: content-box;
     overflow-x: hidden;
     margin-top: 50px;
-
-
 }
 
 .table_Cars {
@@ -317,33 +322,35 @@ table > .table_Cars > td > img {
 
 
 
+/* Tabela de comparação */
+.material-icons {
+    font-size: 16px;
+}
 
-
-
-
-
-
-
-
+/* Botão de fechar "X" */
 .close_Table {
+    
     border-radius: 50%;
-    border: 1px solid gray;
+    border: 2px solid rgba(128, 128, 128, 0.377);
     padding: 5px;
-    font-size: medium;
     width: 30px;
     height: 30px;
-    font-family: "Antenna", Arial, Helvetica, sans-serif;
     position: absolute;
     top: 0;
     right: 0;
     transform: translate(-30%, -50%);
     cursor: pointer;
+    color: rgb(88, 88, 88);
+    
 } 
 
+
+/* Botão de fechar "palavra */
 #fechar_Table {
     text-align: center;
     padding: 5px 15px; 
     font-size: larger;
+    color: rgb(88, 88, 88);
     margin-top: 30px;
     border-radius: 20px;
     border: 2px solid rgba(128, 128, 128, 0.377);
@@ -356,7 +363,7 @@ table > .table_Cars > td > img {
     cursor: pointer;
 }
 
-
+/* Div de comparação */
 #div_Comparacao {
     margin: 10px 0;
     max-height: 90vh;
@@ -376,7 +383,7 @@ table > .table_Cars > td > img {
     box-sizing: content-box;
 }
 
-
+/* Tabela de comparação */
 #table_Comparacao {
     max-height: 80vh;
     width: 100%;
@@ -387,11 +394,8 @@ table > .table_Cars > td > img {
     grid-template-columns: auto;
     box-sizing: content-box;
     overflow-x: hidden;
-
     border: none;
 }
-
-
 
 .row_Comparacao:nth-child(even) {
     background-color: #dddddd;
@@ -404,8 +408,6 @@ table > .table_Cars > td > img {
 .row_Comparacao {
     text-align: center;
     font-size: smaller;
-    
-
 }
 
 .row_Comparacao > td {
@@ -421,29 +423,7 @@ table > .table_Cars > td > img {
     height: auto;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Botão de comparação */
 #section_Btn {
     display: flex;
     flex-direction: column;
@@ -459,20 +439,6 @@ table > .table_Cars > td > img {
     align-items: center;
     padding: 20px;
     font-size: 20px;
-}
-
-#erro_Div {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#erro_Span {
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
-    text-align: center;
-    justify-self: center;
-    color: red;
 }
 
 button a {
@@ -511,8 +477,20 @@ button a {
     opacity: 0.5;
 }
 
+/* Mensagem de erro */
+#erro_Div {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-
+#erro_Span {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    text-align: center;
+    justify-self: center;
+    color: red;
+}
 
 /* Footer */
 footer {
@@ -538,7 +516,6 @@ footer {
     padding: 10px;
 }
 
-
 .redes_Sociais {
     display: flex;
     justify-content: flex-start;
@@ -559,7 +536,6 @@ footer {
     object-fit: contain;
     padding: 5px 0;
     margin-left: 2vw;
-
 }
 
 .logo_Redes > a > img:hover {
@@ -582,8 +558,6 @@ footer {
     justify-self: end;
     align-self: center;
 }
-
-
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
@@ -638,7 +612,6 @@ footer {
         transform: scaleX(1);
         
     }
-
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
@@ -651,7 +624,6 @@ footer {
         grid-template-rows: auto;
         
     }
-
 
     .copy_Right {
         grid-column-start: 2;    /* Começa na linha vertical 1 */
@@ -667,6 +639,3 @@ footer {
     }
     
 }
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
