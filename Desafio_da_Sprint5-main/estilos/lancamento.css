@@ -10,6 +10,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+
 .material-icons-outlined {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -22,6 +23,10 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
+    .material-icons {
+    font-family: 'Material Icons' !important;
+    font-size: 24px; /* Ou o tamanho desejado */
+}
   
     /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;
@@ -49,6 +54,7 @@ body {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 
@@ -170,6 +176,8 @@ nav > button {
     z-index: 6;
 }
 
+
+/* Página principal */
 main {
     width: 100vw;
     background-color: white;
@@ -177,7 +185,7 @@ main {
     
 }
 
-
+/* Vídeo */
 .video-container {
     display: block;
     width: 100%;
@@ -204,7 +212,7 @@ main {
 }  
 
 
-
+/* Seção de carros */
 table{
     width: 100%;
     height: auto;
@@ -214,23 +222,21 @@ table{
     box-sizing: content-box;
     overflow-x: hidden;
     margin-top: 50px;
-
-
 }
 
-tr {
+.table_Cars {
     display: grid;
     grid-template-columns: auto;
 }
 
 @media (min-width: 700px) {
-    tr {
+    .table_Cars {
         grid-template-columns: auto auto;
     }
 } 
 
 @media (min-width: 1100px) {
-    tr {
+    .table_Cars {
         grid-template-columns: auto auto auto;
     }
     header > .cabecalho > img {
@@ -238,7 +244,7 @@ tr {
     }
 } 
 
-table > tr > td {
+table > .table_Cars > td {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -248,12 +254,12 @@ table > tr > td {
     overflow-x: hidden;
 }
 
-table > tr > td > img {
+table > .table_Cars > td > img {
     width: 100%;
     height: auto;
     object-fit: contain;
     display: block;
-}
+} 
 
 .info_Carro {
     display: flex;
@@ -316,6 +322,114 @@ table > tr > td > img {
 
 
 
+/* Tabela de comparação */
+.material-icons {
+    font-size: 16px;
+}
+
+/* Botão de fechar "X" */
+.close_Table {
+    
+    border-radius: 50%;
+    border: 2px solid rgba(128, 128, 128, 0.377);
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-30%, -50%);
+    cursor: pointer;
+    
+} 
+
+
+/* Botão de fechar "palavra */
+#fechar_Table {
+    text-align: center;
+    padding: 5px 15px; 
+    font-size: larger;
+    margin-top: 30px;
+    border-radius: 20px;
+    border: 2px solid rgba(128, 128, 128, 0.377);
+    transition: ease 0.5s;
+    font-weight: bold;
+}
+
+#fechar_Table:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Div de comparação */
+#div_Comparacao {
+    margin: 10px 0;
+    max-height: 90vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50% );
+    background-color: white;
+    border: 2px solid rgba(92, 92, 92, 0.548);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 10px;
+    padding-top: 0;
+    box-sizing: content-box;
+}
+
+/* Tabela de comparação */
+#table_Comparacao {
+    max-height: 80vh;
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    text-align: center;
+    display: flex;
+    grid-template-columns: auto;
+    box-sizing: content-box;
+    overflow-x: hidden;
+    border: none;
+}
+
+.row_Comparacao:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#body_Comparacao {
+    border: 0px;
+}
+
+.row_Comparacao {
+    text-align: center;
+    font-size: smaller;
+}
+
+.row_Comparacao > td {
+
+    text-align: center;
+    padding: 10px 5px;
+}
+
+.image_Table{
+    width: 100%;
+    max-width: 100px;
+    min-width: 50px;
+    height: auto;
+}
+
+/* Botão de comparação */
+#section_Btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
 #compare {
     display: flex;
     flex-direction: column;
@@ -361,8 +475,20 @@ button a {
     opacity: 0.5;
 }
 
+/* Mensagem de erro */
+#erro_Div {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-
+#erro_Span {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    text-align: center;
+    justify-self: center;
+    color: red;
+}
 
 /* Footer */
 footer {
@@ -388,7 +514,6 @@ footer {
     padding: 10px;
 }
 
-
 .redes_Sociais {
     display: flex;
     justify-content: flex-start;
@@ -409,7 +534,6 @@ footer {
     object-fit: contain;
     padding: 5px 0;
     margin-left: 2vw;
-
 }
 
 .logo_Redes > a > img:hover {
@@ -432,8 +556,6 @@ footer {
     justify-self: end;
     align-self: center;
 }
-
-
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
@@ -488,7 +610,6 @@ footer {
         transform: scaleX(1);
         
     }
-
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
@@ -501,7 +622,6 @@ footer {
         grid-template-rows: auto;
         
     }
-
 
     .copy_Right {
         grid-column-start: 2;    /* Começa na linha vertical 1 */
@@ -517,6 +637,3 @@ footer {
     }
     
 }
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
