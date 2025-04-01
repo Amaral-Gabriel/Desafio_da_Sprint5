@@ -340,6 +340,7 @@ table > .table_Cars > td > img {
     right: 0;
     transform: translate(-30%, -50%);
     cursor: pointer;
+    color: rgb(88, 88, 88);
     
 } 
 
@@ -349,6 +350,7 @@ table > .table_Cars > td > img {
     text-align: center;
     padding: 5px 15px; 
     font-size: larger;
+    color: rgb(88, 88, 88);
     margin-top: 30px;
     border-radius: 20px;
     border: 2px solid rgba(128, 128, 128, 0.377);

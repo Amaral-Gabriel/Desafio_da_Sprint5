@@ -35,13 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-function exibe_nome() {
-    let nome_Input = document.getElementsById("nome").value;
-    
-    console.log(nome_Input);
-}
+    function exibe_nome(event) {
+        event.preventDefault(); // Evita que o formulário seja enviado e a página recarregue
 
+        let nome = document.getElementById("nome").value;
+        let sobrenome = document.getElementById("sobrenome").value;
 
+        console.log("Nome:", nome);
+        console.log("Sobrenome:", sobrenome);
+    }
+    exibe_nome();
 
 
 });
