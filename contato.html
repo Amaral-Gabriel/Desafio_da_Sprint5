@@ -44,12 +44,12 @@
                 <p class="message">Sobre você</p>
                 <span id="error_Forms"></span>
                 <div class="flex">
-                    <input required placeholder="NOME" type="text" class="input" name="nome" id="nome">
-                    <input required placeholder="SOBRENOME" type="text" class="input" name="sobrenome" id="sobrenome">
+                    <input required placeholder="PRIMEIRO NOME" type="text" class="input" name="nome" id="nome">
+                    <input required placeholder="ÚLTIMO NOME" type="text" class="input" name="sobrenome" id="sobrenome">
                 </div>
                 
                 <input required placeholder="EMAIL" type="email" class="input" name="email" id="email">
-                <input required placeholder="TELEFONE" type="number" class="input" name="telefone" id="telefone">
+                <input oninput="mascaraTelefone(this)" maxlength="16" required placeholder="TELEFONE" type="text" class="input" name="telefone" id="telefone">
                 
                 <select required class="input" name="tipo_contato" id="tipo_contato">
                     <option value="" disabled selected>TIPO DE CONTATO</option>

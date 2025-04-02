@@ -89,7 +89,7 @@ function createCarTableCells() {
                 <div class="titulo_Preco">
                     <input type="checkbox" name="compare" class="input_Box" 
                            data-car-index="${car.index}">
-                    <p class="preco">A partir de R$ ${car.preco}</p>
+                    <p class="preco">A partir de R$ ${car.preco} <a href=""><img id="simbolo_Info" src="assets/imagens/info.png" alt="Simbolo de informação"></a></p>
                 </div>
             </div>
         `;
@@ -201,7 +201,9 @@ document.addEventListener("DOMContentLoaded", () => {
     handleCompareSelection();
 
     document.querySelector('.botao_Comparar').addEventListener('click', () => {
+        
         showCompare();
+        event.preventDefault()
     });
 
     document.addEventListener("click", function (event) { // Verfica se o usuário clica fora da tabela
