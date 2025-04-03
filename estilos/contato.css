@@ -189,6 +189,15 @@ main {
     display: block;
 }
 
+@media only screen and (min-width: 720px) {
+    #conteudo_Principal {
+        flex-direction: row;
+    }
+    #conteudo_Principal > img {
+        width: 40vw;
+    }
+}
+
 @media only screen and (min-width: 600px) {
     #conteudo_Principal {
         flex-direction: row;
@@ -369,6 +378,92 @@ textarea {
 input::placeholder, textarea::placeholder {
     color: rgba(0, 0, 0, 0.5);  
 }
+
+
+#confirmacao {
+    display: none;
+    background-color: rgb(240, 240, 240);
+    width: 90%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--cor-azul-escuro);
+    max-width: 350px;
+    height: 630px;
+    
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    position: relative;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: medium;
+    gap: 40px;
+}
+
+.botao_confirmacao {
+    justify-content: center;
+    align-items: center;
+    font-family: "Antenna",Arial, Helvetica, sans-serif;
+    border: none;
+    outline: none;
+    border: 2px solid var(--cor-azul-escuro);
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: large;
+    transform: .3s ease;
+    text-decoration: none;
+    min-width: 150px;
+    gap: 20px;
+    width: 95%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.192);
+}
+
+.botao_confirmacao:hover {
+    transform: scale(1.01);
+    background-color: rgb(245, 245, 245);
+}
+
+.botao_confirmacao > a {
+    font-family: "Antenna",Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+    color: var(--cor-azul-escuro);
+    text-decoration: none;
+}
+
+.btn_Confirmation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.confirmacao_Strong {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    color: var(--cor-azul-escuro);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Footer */
 footer {

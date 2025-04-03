@@ -38,7 +38,7 @@
             <img src="assets/imagens/xls 2.2 diesel.jpg" alt="Ranger 2022 XLS na cor vermelha">
             
             
-            <form novalidate class="form" method="GET" action="">
+            <form novalidate id="form" class="form" method="GET" action="">
                 
                 <p class="title">Contato</p>
                 <p class="message">Sobre você</p>
@@ -63,6 +63,18 @@
                 <button type="submit" class="submit">Enviar</button>
 
             </form>
+
+            <div id="confirmacao">
+                <div class="text_Confirmation">
+                    <h1>Mensagem enviada com sucesso!</h1>
+                    <span>Olá, <strong class="confirmacao_Strong" id="strong_Name"></strong>! Agradecemos seu contato.<br><br> Sua mensagem foi recebida e nossa equipe está avaliando <span id="text_Tipo"></span>. Em breve, entraremos em contato. <br> <br> A <strong class="confirmacao_Strong">Ford</strong> valoriza sua opinião e está sempre à disposição!</span>
+
+                </div>
+                <div class="btn_Confirmation">
+                    <button class="botao_confirmacao"><a href="index.html">Voltar para página principal</a></button>
+                    <button onclick="closeConfirmation()" class="botao_confirmacao"><a href="">Enviar outra mensagem</a></button>
+                </div>
+            </div>
 
         </div>
     </main>

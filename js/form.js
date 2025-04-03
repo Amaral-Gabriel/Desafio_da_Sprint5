@@ -10,8 +10,8 @@ class Contato {
     }
 }
 
-let mensage_Base = []; // Guarda as mensagens enviadas
-let erro_Mensage = document.getElementById("error_Forms");
+let mensage_Base = []; // Guarda as mensagens enviadas, para posterior análise
+let erro_Mensage = document.getElementById("error_Forms"); // Mensagem de erro
 
 document.querySelector(".form").addEventListener("submit", function(event) {
     event.preventDefault()
@@ -23,13 +23,6 @@ document.querySelector(".form").addEventListener("submit", function(event) {
     let tipoContato = document.getElementById("tipo_contato").value;
     let mensagem = document.getElementById("mensagem").value.trim();
     let data = new Date().toLocaleString();
-
-
-    
-    
-
-   
-
 
 
    // Validação do Primeiro nome
@@ -74,31 +67,27 @@ document.querySelector(".form").addEventListener("submit", function(event) {
         return
     } else{document.getElementById("mensagem").style.borderColor = "black";}
 
-
     clearErro()
-
-
-    
 
     let contato = new Contato(nome, sobrenome, email, telefone, tipoContato, mensagem, data);
     
     mensage_Base.push(contato);
     console.log(mensage_Base);
-    console.log(nome);
-        
-    
+    document.getElementById("form").style.display = "none";
+    document.getElementById("confirmacao").style.display = "flex";
+    confirmacao(nome, tipoContato);
 });
+
 
 function clearErro(){
     erro_Mensage.innerHTML ="";
     document.querySelector("input").style.borderColor = "black";
 }
-
-function checkNome(value){
+// Verifica o nome e sobrenome
+function checkNome(value){ 
     const nomeRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]{3,}$/;
     return nomeRegex.test(value);
 }
-
 function checkMensage(value){
     return value.length < 10;
 }
@@ -108,11 +97,14 @@ function checkEmail(value) {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(value);
 }
+
+// Verifica telefone
 function checkPhone(value) {
     const phoneRegex = /^\(\d{2}\) 9 \d{4}-\d{4}$/;
     return phoneRegex.test(value);
 }
 
+// Máscara de telefone
 function mascaraTelefone(input) {
     let valor = input.value.replace(/\D/g, ""); // Remove tudo que não for número
     
@@ -133,6 +125,29 @@ function mascaraTelefone(input) {
     if (valor.length > 16) {
         valor = valor.substring(0, 15);
     }
-    
+
     input.value = valor;
+}
+
+function confirmacao(nome, tipo_contato){
+    document.getElementById("strong_Name").innerHTML = `${nome}`;
+    if(tipo_contato === "Elogio"){
+        document.getElementById("text_Tipo").innerHTML = "o seu elogio";
+    } else{
+        document.getElementById("text_Tipo").innerHTML = `a sua ${tipo_contato.toLowerCase()}`;
+    }
+}
+
+function closeConfirmation() {
+    event.preventDefault()
+    // Oculta a mensagem de confirmação
+    document.getElementById("confirmacao").style.display = "none";
+    
+    // Exibe novamente o formulário de contato
+    document.getElementById("form").style.display = "flex";
+    
+    // Limpa os campos do formulário para o usuário preencher novamente
+    document.querySelector(".form").reset(); // Limpa os campos de input
+    erro_Mensage.innerHTML = ""; // Limpa a mensagem de erro, caso tenha
+    document.querySelector("input").style.borderColor = "black"; // Reseta as bordas dos inputs
 }
